@@ -1,7 +1,12 @@
 const mysql = require('mysql2');
-const config = require('../config/environments')
 
-const con = mysql.createConnection(config.DB)
+const con = mysql.createConnection({
+    user: process.env.DB_MYSQL_USER,
+    password: process.env.DB_MYSQL_PASSWORD,
+    database: process.env.DB_MYSQL_DATABASE_TRANSACTION,
+    host: process.env.DB_MYSQL_HOST,
+    port: process.env.DB_MYSQL_PORT
+})
 
 const transactionRepository = {
     addTransaction: async (amount, accountId) => {
