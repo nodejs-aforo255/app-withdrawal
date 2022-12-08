@@ -26,7 +26,7 @@ jobs:
 
   merge-branch:
     name: Merge to main
-    needs: docker 
+    needs: docker
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
